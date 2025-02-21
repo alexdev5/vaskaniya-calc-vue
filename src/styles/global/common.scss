@@ -1,0 +1,55 @@
+.app-calculator-wrapper {
+	max-width: 1200px;
+	margin-inline: auto;
+	color: var(--app-color-primary);
+	font-size: var(--app-font-size-base);
+
+	.vs-wrapper {
+		margin-inline-start: var(--app-navigation-width);
+		padding-inline: var(--app-offset-middle);
+		padding-block: var(--app-offset-middle);
+		display: grid;
+		gap: var(--app-offset-middle);
+	}
+
+	.app-color-red {
+		color: var(--app-color-red);
+	}
+
+	.bold {
+		font-weight: 600;
+	}
+
+	.vs-icon-btn {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		padding: 4px;
+		border-radius: 50%;
+		cursor: pointer;
+		background: var(--app-color-grey);
+		//@include trans;
+
+		&:hover {
+			background: var(--app-color-primary);
+			color: var(--app-color-secondary);
+		}
+	}
+
+}
+
+.v-overlay-container {
+	box-sizing: border-box;
+
+	* {
+		box-sizing: border-box;
+	}
+}
+
+.app-list-standard {
+	padding-left: 10px;
+
+	&.small {
+		font-size: var(--app-font-size-s);
+	}
+}

@@ -1,8 +1,8 @@
 <template>
-    <div class="app-wrapper">
+    <div class="app-calculator-wrapper">
         <AppNavigation />
 
-        <div class="app-container">
+        <div class="vs-wrapper">
             <RouterView />
         </div>
     </div>

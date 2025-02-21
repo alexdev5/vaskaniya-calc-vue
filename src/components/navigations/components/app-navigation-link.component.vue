@@ -39,4 +39,6 @@ const customProps = computed(() => {
 })
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+@import 'app-navigation';
+</style>

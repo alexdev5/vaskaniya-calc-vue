@@ -1,0 +1,6 @@
+.app-form-field-checkbox:not(.details-on),
+.app-form-field:not(.details-on) {
+  .v-input__details {
+    display: none;
+  }
+}

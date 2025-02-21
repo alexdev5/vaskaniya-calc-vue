@@ -1,6 +1,6 @@
 <template>
-    <div class="app-menu">
-        <ul class="app-menu-links">
+    <div class="vs-navigation">
+        <ul class="vs-navigation-links">
             <AppNavLink :to="{ name: RouteName.Dimensions }">
                 {{ content.menu.dimensions }}
             </AppNavLink>
@@ -17,6 +17,9 @@
                 {{ content.menu.addons }}
             </AppNavLink>
             <AppNavLink :to="{ name: RouteName.Result }">
+                <template #icon-prepend>
+                    <IconSettings />
+                </template>
                 {{ content.menu.result }}
             </AppNavLink>
         </ul>
@@ -25,6 +28,7 @@
 
 <script lang="ts" setup>
 import AppNavLink from './components/app-navigation-link.component.vue'
+import IconSettings from '@/components/icons/IconSettings.vue'
 
 import { content } from '@/content'
 
