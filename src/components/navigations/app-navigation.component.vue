@@ -18,7 +18,7 @@
             </AppNavLink>
             <AppNavLink :to="{ name: RouteName.Result }">
                 <template #icon-prepend>
-                    <IconSettings />
+
                 </template>
                 {{ content.menu.result }}
             </AppNavLink>
@@ -28,7 +28,6 @@
 
 <script lang="ts" setup>
 import AppNavLink from './components/app-navigation-link.component.vue'
-import IconSettings from '@/components/icons/IconSettings.vue'
 
 import { content } from '@/content'
 
