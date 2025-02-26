@@ -1,9 +1,13 @@
 <template>
     <div class="app-calculator-wrapper">
-        <AppNavigation />
+        <h1>Добро пожаловать в наш Online-калькулятор</h1>
 
-        <div class="vs-wrapper">
-            <RouterView />
+        <div class="app-calculator-container">
+            <AppNavigation />
+
+            <div class="app-calculator-body">
+                <RouterView />
+            </div>
         </div>
     </div>
 </template>

@@ -1,30 +1,34 @@
 .app-calculator-wrapper {
 
-	.app-flex {
+	.vs-flex {
 		display: flex;
 	}
 
-	.app-grid {
+	.vs-ai-center {
+		align-items: center;
+	}
+
+	.vs-grid {
 		display: grid;
 	}
 
-	.app-gap-xs {
+	.vs-gap-xs {
 		gap: 4px;
 	}
 
-	.app-gap-s {
+	.vs-gap-s {
 		gap: 8px;
 	}
 
-	.app-gap {
+	.vs-gap {
 		gap: 16px;
 	}
 
-	.app-gap-l {
+	.vs-gap-l {
 		gap: 24px;
 	}
 
-	.app-gap-xl {
+	.vs-gap-xl {
 		gap: 32px;
 	}
 }

@@ -1,0 +1,59 @@
+<template>
+    <div class="app-block-figure-description">
+        <p class="app-block-figure-description-title">
+            {{ content.common.designations.title }}
+        </p>
+        <div class="app-block-figure-description-items">
+            <div class="app-block-figure-description-item">
+                <IconCircleRed />
+                = {{ content.common.designations.frontChamfer }}
+            </div>
+            <div class="app-block-figure-description-item">
+                <IconSquareRed />
+                = {{ content.common.designations.sideSkirting }}
+            </div>
+            <div class="app-block-figure-description-item">
+                <IconCircleRedFilled />
+                = {{ content.common.designations.roundingChamfer }}
+            </div>
+            <div class="app-block-figure-description-item">
+                <IconSquareRedFilled />
+                = {{ content.common.designations.integratedSkirting }}
+            </div>
+            <div class="app-block-figure-description-item">
+                <IconTriangleRed />
+                = {{ content.common.designations.frontWithoutChamfer }}
+            </div>
+        </div>
+        <p class="vs-flex vs-ai-center vs-gap-s">
+            <InfoCircleIconFilled />
+            {{ content.dimensions.imageBlockInfo }}
+        </p>
+    </div>
+</template>
+
+<script lang="ts" setup>
+import IconCircleRed from '@/components/icons/dimensions/IconCircleRed.vue'
+import IconSquareRed from '@/components/icons/dimensions/IconSquareRed.vue'
+import IconTriangleRed from '@/components/icons/dimensions/IconTriangleRed.vue'
+import IconCircleRedFilled from '@/components/icons/dimensions/IconCircleRedFilled.vue'
+import IconSquareRedFilled from '@/components/icons/dimensions/IconSquareRedFilled.vue'
+import InfoCircleIconFilled from '@/components/icons/info-circle-filled.icon.vue'
+
+import { content } from '@/content'
+</script>
+
+<style lang="scss">
+.app-block-figure-description-title {
+    font-weight: 600;
+    font-size: var(--app-font-size-base);
+    margin-block-end: 10px;
+}
+
+.app-block-figure-description-items {
+    display: grid;
+    grid-template-columns: 300px 300px;
+    gap: var(--app-offset-xs);
+    padding-bottom: 16px;
+}
+</style>

@@ -1,0 +1,44 @@
+.app-block-card {
+	--app-card-width: 145px;
+
+	width: var(--app-card-width);
+	min-height: 110px;
+	padding: var(--app-offset-s);
+	border-radius: 12px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 6px;
+	background: #F6F4F3;
+	@include trans;
+
+	&:hover {
+		cursor: pointer;
+		@include boxShadow
+	}
+
+	.app-block-card-image {
+		flex-grow: 1;
+		max-height: 100px;
+
+		img {
+			max-height: 100%;
+		}
+	}
+
+	.app-block-card-label {
+		text-align: center;
+		font-weight: 500;
+	}
+
+	&.app-block-card-active {
+		background: var(--app-color-error-10);
+		color: var(--app-color-secondary);
+
+		@include boxShadow;
+
+		.app-block-card-label {
+			//font-weight: 500;
+		}
+	}
+}

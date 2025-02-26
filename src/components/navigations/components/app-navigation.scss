@@ -1,35 +1,78 @@
-.vs-navigation {
-  position: fixed;
-  width: var(--app-navigation-width);
-  background: #F4F3F3;
-  font-size: var(--app-font-size-m);
+.app-navigation-wrapper {
+	--link-item-height: 56px;
+	--border-radius: 30px;
 
-  .vs-navigation-links {
-    display: grid;
-    padding-inline-end: 10px;
-  }
-}
+	padding-block-start: var(--app-offset-large);
 
-.app-navigation-item {
-}
+	.vs-navigation {
+		position: fixed;
+		width: var(--app-navigation-width);
+		background: #F4F3F3;
+		font-size: var(--app-font-size-l);
 
-.app-navigation-item-link {
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  padding: 8px 16px;
-  gap: 8px;
-  color: var(--app-color-primary);
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
-  @include trans;
+		.vs-navigation-links {
+			display: grid;
+			padding-inline-end: 20px;
+		}
+	}
 
-  &:hover {
-    background: rgba(var(--app-color-red-rgb), .2)
-  }
+	.app-navigation-item-link {
+		text-decoration: none;
+		display: flex;
+		align-items: center;
+		padding-inline: 32px 16px;
+		padding-block: 8px;
+		gap: 8px;
+		color: var(--app-color-primary);
+		border-top-right-radius: var(--border-radius);
+		border-bottom-right-radius: var(--border-radius);
+		min-block-size: var(--link-item-height);
+		position: relative;
+		@include trans;
 
-  &.router-link-active {
-    background: var(--app-color-red);
-    color: var(--app-color-secondary);
-  }
+		&:before {
+			content: '';
+			display: block;
+			position: absolute;
+			top: 0;
+			right: 100%;
+			width: 60px;
+			height: var(--link-item-height);
+			background: var(--app-color-error-10);
+			visibility: hidden;
+			opacity: 0;
+			@include trans;
+		}
+
+		&:hover {
+			background: rgba(var(--app-color-error-10-rgb), .2);
+		}
+
+		.vs-icon {
+			height: 24px;
+
+			path {
+				fill-rule: evenodd;
+				clip-rule: evenodd;
+				fill: #2d4345;
+			}
+		}
+
+		&.router-link-active {
+			background: var(--app-color-error-10);
+			color: var(--app-color-secondary);
+
+			&:before {
+				visibility: visible;
+				opacity: 1;
+			}
+
+			path {
+				fill-rule: evenodd;
+				clip-rule: evenodd;
+				fill: var(--app-color-secondary);
+			}
+		}
+	}
+
 }
