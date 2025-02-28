@@ -5,7 +5,7 @@
 	padding-block-start: var(--app-offset-large);
 
 	.vs-navigation {
-		position: fixed;
+		position: absolute;
 		width: var(--app-navigation-width);
 		background: #F4F3F3;
 		font-size: var(--app-font-size-l);
@@ -38,14 +38,14 @@
 			right: 100%;
 			width: 60px;
 			height: var(--link-item-height);
-			background: var(--app-color-error-10);
+			background: var(--app-color-error);
 			visibility: hidden;
 			opacity: 0;
 			@include trans;
 		}
 
 		&:hover {
-			background: rgba(var(--app-color-error-10-rgb), .2);
+			background: rgba(var(--app-color-error-rgb), .2);
 		}
 
 		.vs-icon {
@@ -59,7 +59,7 @@
 		}
 
 		&.router-link-active {
-			background: var(--app-color-error-10);
+			background: var(--app-color-error);
 			color: var(--app-color-secondary);
 
 			&:before {

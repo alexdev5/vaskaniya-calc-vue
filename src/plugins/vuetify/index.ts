@@ -7,24 +7,21 @@ import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
 import theme from './theme'
 
-
 export default createVuetify({
-  components,
-  defaults: {
-    VBtn: {
-
+    components,
+    defaults: {
+        VBtn: {},
+        VSelect: {
+            variant: 'outlined',
+            density: 'compact',
+            color: 'primary',
+            hideDetails: 'auto',
+            VChip: {
+                color: 'primary',
+                label: true,
+            },
+        },
     },
-    VSelect: {
-      variant: 'outlined',
-      density: 'compact',
-      color: 'primary',
-      hideDetails: 'auto',
-      VChip: {
-        color: 'primary',
-        label: true,
-      },
-    },
-  },
-  directives,
-  theme,
+    directives,
+    theme,
 })

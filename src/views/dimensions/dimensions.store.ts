@@ -47,13 +47,7 @@ export const useDimensionsStore = defineStore('dimensions', () => {
             state.entries = result
 
             console.log(result)
-            // state.productTypes = (result.productTypes ?? []).map(
-            // 	productType => new TermState(productType),
-            // )
-            // state.configurations = (result.configurations ?? []).map(
-            // 	configuration => new TermState(configuration),
-            // )
-            // state.figures = result.figures
+            setCardDefault()
         } catch (error: any) {
             console.log(error)
         } finally {
@@ -62,16 +56,32 @@ export const useDimensionsStore = defineStore('dimensions', () => {
     }
 
     function setCardDefault() {
-        //state.selectedProductTypeId = state.productTypes?.[0]?.id ?? 0
-        // watch fix
-        // setTimeout(() => {
-        // 	if (state.selectedProductTypeId && state.configurations?.length) {
-        // 		state.selectedConfigurationId = state.configurations.find(
-        // 			item => item.productTypeParentId === state.selectedProductTypeId,
-        // 		)?.id ?? 0
-        // 	}
-        // }, 100)
+        if (!state.entries) return
+
+        state.selectedProductTypeId = state.entries?.productTypes?.[0]?.id ?? 0
+
+        setTimeout(() => {
+            if (
+                state.selectedProductTypeId &&
+                state.entries!.configurations?.length
+            ) {
+                state.selectedConfigurationId =
+                    state.entries!.configurations.find(
+                        (item) =>
+                            item.productTypeParentId ===
+                            state.selectedProductTypeId
+                    )?.id ?? 0
+            }
+        }, 100)
     }
+
+    const figureSelected = computed(() => {
+        if (!state.entries?.figures?.length) return null
+
+        return state.entries.figures.find((figure) =>
+            figure.taxonomies.includes(state.selectedConfigurationId)
+        )
+    })
 
     watch(
         () => state.selectedProductTypeId,
@@ -82,8 +92,8 @@ export const useDimensionsStore = defineStore('dimensions', () => {
     return {
         state,
         loadDimensions,
-        setCardDefault,
         selectedProductType,
         selectedConfiguration,
+        figureSelected,
     }
 })

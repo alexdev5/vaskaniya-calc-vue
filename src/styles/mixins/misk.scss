@@ -17,7 +17,7 @@
 }
 
 @mixin cardHover() {
-	border-color: var(--app-color-error-10);
+	border-color: var(--app-color-error);
 	@include boxShadow;
 }
 

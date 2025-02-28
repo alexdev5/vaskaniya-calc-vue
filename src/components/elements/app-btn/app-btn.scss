@@ -1,0 +1,16 @@
+.app-btn {
+	&.app-btn-red {
+		background: var(--app-color-error);
+		color: #fff !important;
+	}
+
+	&:not(.v-btn--icon) {
+		padding-inline: 24px;
+	}
+
+	.v-btn__content {
+		text-transform: none;
+		letter-spacing: normal;
+		text-indent: 0;
+	}
+}

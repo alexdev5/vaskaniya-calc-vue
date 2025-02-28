@@ -17,7 +17,7 @@
 </template>
 
 <script lang="ts" setup>
-import AppBtn from '@/components/elements/app-btn.component.vue'
+import AppBtn from '@/components/elements/app-btn/app-btn.component.vue'
 import { computed } from 'vue'
 
 const props = defineProps({

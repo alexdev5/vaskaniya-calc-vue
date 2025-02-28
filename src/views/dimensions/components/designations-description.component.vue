@@ -54,6 +54,6 @@ import { content } from '@/content'
     display: grid;
     grid-template-columns: 300px 300px;
     gap: var(--app-offset-xs);
-    padding-bottom: 16px;
+    padding-bottom: 4px;
 }
 </style>

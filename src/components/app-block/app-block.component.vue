@@ -25,6 +25,7 @@ defineProps<{
         display: flex;
         gap: 4px;
         font-size: var(--app-font-size-m);
+        min-block-size: 24px;
     }
 }
 </style>

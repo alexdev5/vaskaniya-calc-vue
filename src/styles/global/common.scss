@@ -19,7 +19,7 @@
 	}
 
 	.app-color-red {
-		color: var(--app-color-error-10);
+		color: var(--app-color-error);
 	}
 
 	.bold {
@@ -33,7 +33,7 @@
 		padding: 4px;
 		border-radius: 50%;
 		cursor: pointer;
-		background: var(--app-color-grey);
+		background: var(--app-color-n-92);
 		//@include trans;
 
 		&:hover {

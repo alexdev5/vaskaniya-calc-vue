@@ -6,15 +6,12 @@ import { createPinia } from 'pinia'
 
 import '@/styles/main.scss'
 
-(async () => {
-	const app = createApp(App)
-	const router = createRouter()
+;(async () => {
+    const app = createApp(App)
+    const router = createRouter()
+    app.use(router)
+    app.use(createPinia())
 
-	app.use(router)
-	app.use(createPinia())
-
-	app.use(vuetify)
-	app.mount('#app')
+    app.use(vuetify)
+    app.mount('#app')
 })()
-
-
