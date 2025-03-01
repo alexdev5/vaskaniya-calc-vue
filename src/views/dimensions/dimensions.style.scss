@@ -28,4 +28,33 @@
 		gap: 32px;
 		align-items: center;
 	}
+
+	.app-block-figure-image {
+		position: relative;
+
+		.app-number-input {
+			border: 1px solid red;
+			position: absolute;
+			z-index: 2;
+			width: 80px;
+
+			.v-number-input__control,
+			.v-field__field {
+				background: transparent;
+			}
+
+			.v-field__input {
+				--v-field-input-padding-top: 4px;
+				--v-field-input-padding-bottom: 4px;
+				--v-field-padding-start: 4px;
+				--v-field-padding-end: 4px;
+				--v-input-control-height: 34px;
+				letter-spacing: normal;
+			}
+		}
+
+		.app-circular-toggle-menu {
+			position: absolute;
+		}
+	}
 }

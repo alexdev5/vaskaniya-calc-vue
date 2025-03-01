@@ -1,6 +1,7 @@
 .app-navigation-wrapper {
 	--link-item-height: 56px;
 	--border-radius: 30px;
+	width: var(--app-navigation-width);
 
 	padding-block-start: var(--app-offset-large);
 
@@ -9,8 +10,6 @@
 	//}
 
 	.vs-navigation {
-		//position: absolute;
-		width: var(--app-navigation-width);
 		background: #F4F3F3;
 		font-size: var(--app-font-size-l);
 

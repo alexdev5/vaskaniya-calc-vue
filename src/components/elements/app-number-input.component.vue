@@ -1,17 +1,24 @@
 <template>
-    <div class="app-number-input">
-        <VNumberInput control-variant="split" v-model="model" :min="1" />
+    <div class="app-number-input" :class="variant">
+        <VNumberInput :control-variant="variant" v-model="model" :min="1" />
     </div>
 </template>
 
 <script lang="ts" setup>
-defineProps<{}>()
+withDefaults(
+    defineProps<{
+        variant?: 'split' | 'hidden'
+    }>(),
+    { variant: 'split' }
+)
 const model = defineModel<number>()
 </script>
 
 <style lang="scss">
 .app-number-input {
-    max-width: 200px;
+    &.split {
+        max-width: 200px;
+    }
 
     .v-number-input {
         .v-input__details {

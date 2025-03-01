@@ -37,3 +37,15 @@ export enum TableSideActions {
     IntegratedSkirtingBoard, // Плинтус интегрированный
     FaceWithoutChamfer, // Лицо без фаски
 }
+
+// Столеншицы
+export enum Countertops {
+    Rectangle = 'rectangle',
+    StraightWindowsill = 'straight-windowsill', // прямая + подоконник
+    PShapedCounter = 'p-shaped-counter', // П-образная + барная стойка
+    GShaped = 'g-shaped', // Г-образная
+    PShaped = 'p-shaped', // П-образная
+    PShapedWindowsill = 'p-shaped-windowsill', // П-образная + подоконник
+    PShapedBarCounterWindowsill = 'p-shaped-bar-counter-windowsill', // П-образная + барная стойка + подоконник
+    Circle = 'circle', // круглая
+}

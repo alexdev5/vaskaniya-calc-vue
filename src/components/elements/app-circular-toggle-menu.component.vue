@@ -36,12 +36,12 @@ import AppBtn from '@/components/elements/app-btn/app-btn.component.vue'
 import PlusIcon from '@/components/icons/plus.icon.vue'
 import IconSquareRed from '@/components/icons/dimensions/IconSquareRed.vue'
 import IconCircleRed from '@/components/icons/dimensions/IconCircleRed.vue'
-
-import { TableSideActions } from '@/api/dimensions'
-import { computed, ref } from 'vue'
 import IconCircleRedFilled from '@/components/icons/dimensions/IconCircleRedFilled.vue'
 import IconSquareRedFilled from '@/components/icons/dimensions/IconSquareRedFilled.vue'
 import IconTriangleRed from '@/components/icons/dimensions/IconTriangleRed.vue'
+
+import { TableSideActions } from '@/api/dimensions'
+import { computed, ref } from 'vue'
 
 interface MenuItem {
     icon: any
@@ -96,17 +96,18 @@ function toggleMenu() {
 
 <style lang="scss">
 .app-circular-toggle-menu {
+    --container-width: 12px;
+
     position: relative;
-    width: 32px;
 
     .app-btn {
+        --v-btn-height: var(--container-width);
+
         border-radius: 50% !important;
         transition: all 0.2s linear;
 
         &:not(.active) {
-            --v-btn-height: 12px;
             position: absolute;
-
             top: 0;
             left: 0;
             opacity: 0;
@@ -114,7 +115,7 @@ function toggleMenu() {
         }
 
         &.active {
-            --v-btn-height: 18px;
+            //--v-btn-height: 18px;
             position: relative;
             top: 0 !important;
             left: 0 !important;
@@ -125,6 +126,10 @@ function toggleMenu() {
             path {
                 fill: #fff;
             }
+        }
+
+        .icon-square-red {
+            background: #fff;
         }
     }
 
@@ -143,28 +148,29 @@ function toggleMenu() {
 
         &.items-6 {
             .app-btn:first-child {
-                left: -99%;
-                top: 17%;
+                left: -29px;
+                top: 8px;
             }
 
             .app-btn:nth-child(2) {
-                left: -78%;
-                top: -77%;
+                left: -24px;
+                top: -17px;
             }
 
             .app-btn:nth-child(3) {
-                left: 9%;
-                top: -103%;
+                left: 0px;
+                top: -28px;
             }
 
             .app-btn:nth-child(4) {
-                left: 96%;
-                top: -82%;
+                right: -24px;
+                top: -17px;
+                left: auto;
             }
 
             .app-btn:last-child {
-                right: -99%;
-                top: 17%;
+                right: -29px;
+                top: 8px;
                 left: auto;
             }
         }

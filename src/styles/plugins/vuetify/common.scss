@@ -4,3 +4,9 @@
 	--v-input-control-height: 46px;
 	letter-spacing: normal;
 }
+
+.v-input__control {
+	.v-field {
+		letter-spacing: normal;
+	}
+}

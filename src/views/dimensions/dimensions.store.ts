@@ -8,7 +8,15 @@ export const useDimensionsStore = defineStore('dimensions', () => {
     const state = reactive({
         entries: null as DimensionsContract | null,
         quantity: 1,
+
         topSideAction: TableSideActions.None,
+        rightSideAction: TableSideActions.None,
+        bottomSideAction: TableSideActions.None,
+        leftSideAction: TableSideActions.None,
+
+        tableWidth: undefined,
+        tableDepth: undefined,
+
         quantityStandard: 0,
         selectedProductTypeId: 0 as number,
         selectedConfigurationId: 0 as number,
