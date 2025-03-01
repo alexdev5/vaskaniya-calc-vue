@@ -7,7 +7,7 @@
             success,
         }"
         v-bind="{
-            ...$attrs,
+            //...$attrs,
             color: 'primary',
             variant: variant,
             size: size,

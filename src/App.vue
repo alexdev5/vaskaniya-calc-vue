@@ -3,7 +3,7 @@
         <h1>Добро пожаловать в наш Online-калькулятор</h1>
 
         <div class="app-calculator-container">
-            <AppNavigation />
+            <AppNavigation :price="0" :currency="`$`" />
 
             <div class="app-calculator-body">
                 <RouterView />

@@ -3,7 +3,8 @@
         :title="state.entries?.parent?.acf.blockTitle"
         :number="state.entries?.parent?.acf.blockNumber"
     >
-        <VNumberInput control-variant="split"></VNumberInput>
+        <AppCircularToggleMenu v-model="state.topSideAction" />
+
         <AppBlockCardContainer v-if="state.entries">
             <AppBlockCard
                 v-for="productType in state.entries.productTypes"
@@ -41,19 +42,26 @@
         </AppBlockCardContainer>
     </AppBlock>
 
-    <AppBlock :title="content.dimensions.setDimensionsTitle" :number="3">
+    <AppBlock
+        :title="content.dimensions.setDimensionsTitle"
+        :number="3"
+        :class="[store.selectedConfiguration?.slug]"
+    >
         <DesignationsDescription />
         <div class="app-block-figure-wrapper" v-if="store.figureSelected">
             <div class="app-block-figure" v-if="store.figureSelected.thumbnail">
-                <img
-                    :src="store.figureSelected.thumbnail.url"
-                    alt="thumbnail"
-                />
+                <div class="app-block-figure-image">
+                    <img
+                        :src="store.figureSelected.thumbnail.url"
+                        alt="thumbnail"
+                    />
+                </div>
+                <AppNumberInput v-model="state.quantity" />
             </div>
             <div class="app-block-figure-additional">
                 <AppBtn red rounded>
                     <template #prepend>+</template>
-                    Добавить столешницу
+                    Добавить размер
                 </AppBtn>
                 <div class="app-block-figure-notification">
                     Вы можете добавить неограниченное количество изделий в свой
@@ -72,15 +80,23 @@ import AppBlockCard from '@/components/app-block/app-block-card/app-block-card.c
 import AppBlockCardContainer from '@/components/app-block/app-card-container.component.vue'
 import AppBlock from '@/components/app-block/app-block.component.vue'
 import DesignationsDescription from './components/designations-description.component.vue'
+import AppNumberInput from '@/components/elements/app-number-input.component.vue'
+import AppCircularToggleMenu from '@/components/elements/app-circular-toggle-menu.component.vue'
 
 import { content } from '@/content'
 import { useDimensionsStore } from '@/views/dimensions/dimensions.store.ts'
-import { onMounted } from 'vue'
+import { onMounted, watch } from 'vue'
 
 const store = useDimensionsStore()
 
 const { state, loadDimensions } = useDimensionsStore()
 
+watch(
+    () => state.topSideAction,
+    (value) => {
+        console.log(value)
+    }
+)
 onMounted(async () => {
     await loadDimensions()
 })

@@ -8,14 +8,16 @@
 	.app-calculator-container {
 		box-shadow: 0 0 25px 0 rgba(0, 0, 0, .3);
 		margin-block-start: 25px;
+		display: flex;
+		gap: 24px;
 	}
 
 	.app-calculator-body {
 		display: grid;
 		gap: var(--app-offset-middle);
-		margin-inline-start: var(--app-navigation-width);
 		padding-inline: var(--app-offset-middle);
 		padding-block: var(--app-offset-s) var(--app-offset-middle);
+		flex-grow: 1;
 	}
 
 	.app-color-red {

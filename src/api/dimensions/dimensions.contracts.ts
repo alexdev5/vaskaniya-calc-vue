@@ -1,30 +1,39 @@
 import { PostContracts, TermContracts } from '@/api'
 
 export interface DimensionsContract {
-	taxonomy: TermContracts.TaxonomyName
-	parent: TermContracts.TermContract
-	productTypes: TermContracts.TermContract[]
-	configurations: ConfigurationContract[]
-	figures: PostContracts.PostContract[]
+    taxonomy: TermContracts.TaxonomyName
+    parent: TermContracts.TermContract
+    productTypes: TermContracts.TermContract[]
+    configurations: ConfigurationContract[]
+    figures: PostContracts.PostContract[]
 }
 
 export interface ConfigurationContract extends TermContracts.TermContract {
-	productTypeParentId: number | null
+    productTypeParentId: number | null
 }
 
 export interface CreateFigureCommand {
-	title?: string
-	btnLabel: string
-	taxonomy: string
-	taxonomies: number[]
-	area?: string // in m2
-	notification?: string
+    title?: string
+    btnLabel: string
+    taxonomy: string
+    taxonomies: number[]
+    area?: string // in m2
+    notification?: string
 }
 
 export interface UpdateFigureCommand {
-	id: number
-	title?: string
-	btnLabel: string
-	area?: string // in m2
-	notification?: string
+    id: number
+    title?: string
+    btnLabel: string
+    area?: string // in m2
+    notification?: string
+}
+
+export enum TableSideActions {
+    None, // Лицо с фаской
+    FaceWithChamfer, // Лицо с фаской
+    AttachedSkirtingBoard, // Плинтус приставной
+    BendWithChamfer, // Подгиб с фаской
+    IntegratedSkirtingBoard, // Плинтус интегрированный
+    FaceWithoutChamfer, // Лицо без фаски
 }

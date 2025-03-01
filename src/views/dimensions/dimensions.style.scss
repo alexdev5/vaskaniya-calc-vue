@@ -1,0 +1,31 @@
+.app-block-figure-wrapper {
+	display: grid;
+	gap: 24px;
+
+	.app-block-figure {
+		max-width: 800px;
+		display: grid;
+
+		.app-number-input {
+			justify-self: end;
+		}
+	}
+
+	.app-block-figure-notification {
+		background: var(--app-color-n-70);
+		color: #fff;
+		border-radius: 6px;
+		padding: 6px 16px;
+
+		span {
+			color: var(--app-color-error);
+		}
+	}
+
+	.app-block-figure-additional {
+		display: flex;
+		justify-content: space-between;
+		gap: 32px;
+		align-items: center;
+	}
+}

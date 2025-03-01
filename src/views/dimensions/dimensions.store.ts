@@ -1,21 +1,18 @@
 import { defineStore } from 'pinia'
 import { computed, reactive, watch } from 'vue'
 import { dimensionsApi } from '@/services'
-import { DimensionsContract } from '@/api/dimensions'
+import { DimensionsContract, TableSideActions } from '@/api/dimensions'
 import { TermContract } from '@/api/terms/term.contracts.ts'
 
 export const useDimensionsStore = defineStore('dimensions', () => {
     const state = reactive({
         entries: null as DimensionsContract | null,
-        // taxonomy: '' as TermContracts.TaxonomyName,
-        // parent: null as TermContract | null,
-        // productTypes: null as TermContract[] | null,
-        // configurations: null as TermContract[] | null,
-        // figures: null as PostContracts.PostContract[] | null,
-
-        loading: false,
+        quantity: 1,
+        topSideAction: TableSideActions.None,
+        quantityStandard: 0,
         selectedProductTypeId: 0 as number,
         selectedConfigurationId: 0 as number,
+        loading: false,
     })
 
     const selectedProductType = computed((): TermContract | null => {

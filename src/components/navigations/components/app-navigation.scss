@@ -4,8 +4,12 @@
 
 	padding-block-start: var(--app-offset-large);
 
+	//& > * {
+	//	width: 100%;
+	//}
+
 	.vs-navigation {
-		position: absolute;
+		//position: absolute;
 		width: var(--app-navigation-width);
 		background: #F4F3F3;
 		font-size: var(--app-font-size-l);
@@ -75,4 +79,12 @@
 		}
 	}
 
+	.vs-total {
+		color: var();
+	}
+
+	.vs-total-wrapper {
+		margin-top: 50px;
+		padding-inline: 16px;
+	}
 }

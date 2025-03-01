@@ -26,16 +26,35 @@
                 </AppNavLink>
             </ul>
         </div>
+        <div class="vs-total-wrapper">
+            <div class="vs-total">
+                <p>Ваша цена:</p>
+                <p>{{ price }} {{ currency }}</p>
+                <div>
+                    <small>Рекомендованная розничная цена</small>
+                    <InfoCircleFilledIcon />
+                </div>
+            </div>
+            <div class="vs-total-actions">
+                <AppBtn>Сохранить PDF</AppBtn>
+                <AppBtn>Отправить нам</AppBtn>
+                <AppBtn>Создать КП для клиента</AppBtn>
+            </div>
+        </div>
     </div>
 </template>
 
 <script lang="ts" setup>
 import AppNavLink from './components/app-navigation-link.component.vue'
 import DimensionsIcon from '@/components/icons/navigation/dimensions.icon.vue'
+import AppBtn from '@/components/elements/app-btn/app-btn.component.vue'
+import InfoCircleFilledIcon from '@/components/icons/info-circle-filled.icon.vue'
 
 import { content } from '@/content'
-
 import { RouteName } from '@/router'
-</script>
 
-<style lang="scss"></style>
+defineProps<{
+    price: number
+    currency: string
+}>()
+</script>
