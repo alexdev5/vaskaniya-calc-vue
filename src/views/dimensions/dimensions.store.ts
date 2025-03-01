@@ -8,6 +8,7 @@ export const useDimensionsStore = defineStore('dimensions', () => {
     const state = reactive({
         entries: null as DimensionsContract | null,
         quantity: 1,
+        quantityAdditional: 0,
 
         topSideAction: TableSideActions.None,
         rightSideAction: TableSideActions.None,
@@ -17,11 +18,16 @@ export const useDimensionsStore = defineStore('dimensions', () => {
         tableWidth: undefined,
         tableDepth: undefined,
 
+        additionalTableWidth: undefined,
+        additionalTableDepth: undefined,
+
         quantityStandard: 0,
         selectedProductTypeId: 0 as number,
         selectedConfigurationId: 0 as number,
         loading: false,
     })
+
+    //const additionalCountertops = new Map()
 
     const selectedProductType = computed((): TermContract | null => {
         if (!state.entries?.productTypes?.length) return null

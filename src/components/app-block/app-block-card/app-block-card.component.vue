@@ -24,7 +24,7 @@ const props = defineProps<{
     label?: string
 }>()
 
-const thumbnail = Config.getImageUrl(props.record.acf.thumbnail?.url)
+const thumbnail = Config.getImage(props.record.acf.thumbnail?.url)
 </script>
 
 <style lang="scss">

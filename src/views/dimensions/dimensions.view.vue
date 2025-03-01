@@ -41,6 +41,7 @@
     </AppBlock>
 
     <CountertopsRectangle />
+    <AdditionalCountertops />
 </template>
 
 <script lang="ts" setup>
@@ -48,6 +49,7 @@ import AppBlock from '@/components/app-block/app-block.component.vue'
 import AppBlockCardContainer from '@/components/app-block/app-card-container.component.vue'
 import AppBlockCard from '@/components/app-block/app-block-card/app-block-card.component.vue'
 import CountertopsRectangle from './components/countertops/countertops-rectangle.component.vue'
+import AdditionalCountertops from './components/countertops/additional-countertops.component.vue'
 
 import { useDimensionsStore } from '@/views/dimensions/dimensions.store.ts'
 import { onMounted, watch } from 'vue'

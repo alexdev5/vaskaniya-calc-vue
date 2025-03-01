@@ -14,12 +14,16 @@ export const configConstants = {
 }
 
 export class Config {
-    static getImageUrl(url?: string) {
+    static getImage(url?: string) {
         if (url) return url
 
         return (
             //configConstants.baseApiURL +
             configConstants.apiImagesDir + appImageDefault
         )
+    }
+
+    static getImageUrl(path?: string) {
+        return configConstants.apiImagesDir + '/' + path
     }
 }

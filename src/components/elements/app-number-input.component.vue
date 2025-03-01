@@ -1,6 +1,6 @@
 <template>
     <div class="app-number-input" :class="variant">
-        <VNumberInput :control-variant="variant" v-model="model" :min="1" />
+        <VNumberInput :control-variant="variant" v-model="model" :min="min" />
     </div>
 </template>
 
@@ -8,8 +8,9 @@
 withDefaults(
     defineProps<{
         variant?: 'split' | 'hidden'
+        min: number
     }>(),
-    { variant: 'split' }
+    { variant: 'split', min: 0 }
 )
 const model = defineModel<number>()
 </script>
@@ -17,7 +18,7 @@ const model = defineModel<number>()
 <style lang="scss">
 .app-number-input {
     &.split {
-        max-width: 200px;
+        width: 160px;
     }
 
     .v-number-input {

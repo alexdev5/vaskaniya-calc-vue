@@ -41,11 +41,11 @@
                     />
                 </div>
 
-                <AppNumberInput v-model="state.quantity" />
+                <AppNumberInput v-model="state.quantity" :min="1" />
             </div>
 
             <div class="app-block-figure-additional">
-                <AppBtn red rounded>
+                <AppBtn red rounded @click="state.quantityAdditional++">
                     <template #prepend>+</template>
                     Добавить размер
                 </AppBtn>
