@@ -4,6 +4,15 @@ import { dimensionsApi } from '@/services'
 import { DimensionsContract, TableSideActions } from '@/api/dimensions'
 import { TermContract } from '@/api/terms/term.contracts.ts'
 
+export interface AdditionalSideActions {
+    topAction: TableSideActions
+    rightAction: TableSideActions
+    bottomAction: TableSideActions
+    leftAction: TableSideActions
+    width?: number
+    depth?: number
+}
+
 export const useDimensionsStore = defineStore('dimensions', () => {
     const state = reactive({
         entries: null as DimensionsContract | null,
@@ -27,7 +36,8 @@ export const useDimensionsStore = defineStore('dimensions', () => {
         loading: false,
     })
 
-    //const additionalCountertops = new Map()
+    // Дополнительные изделия (длина, ширина)
+    const additionalProducts = new Map<number, AdditionalSideActions>()
 
     const selectedProductType = computed((): TermContract | null => {
         if (!state.entries?.productTypes?.length) return null
@@ -106,5 +116,6 @@ export const useDimensionsStore = defineStore('dimensions', () => {
         selectedProductType,
         selectedConfiguration,
         figureSelected,
+        additionalProducts,
     }
 })

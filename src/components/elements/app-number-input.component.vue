@@ -8,7 +8,7 @@
 withDefaults(
     defineProps<{
         variant?: 'split' | 'hidden'
-        min: number
+        min?: number
     }>(),
     { variant: 'split', min: 0 }
 )
