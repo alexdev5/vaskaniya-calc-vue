@@ -31,6 +31,7 @@
                         store.state.selectedProductTypeId
                     "
                     :record="configuration"
+                    :label="configuration?.title"
                     :class="{
                         'app-block-card-active':
                             configuration.id === state.selectedConfigurationId,

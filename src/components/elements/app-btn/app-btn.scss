@@ -4,6 +4,11 @@
 		color: #fff !important;
 	}
 
+	&.app-btn-green {
+		background-color: var(--app-color-success);
+		color: #fff !important;
+	}
+
 	&:not(.v-btn--icon) {
 		padding-inline: 24px;
 	}

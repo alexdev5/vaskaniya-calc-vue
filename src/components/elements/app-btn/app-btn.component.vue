@@ -4,6 +4,7 @@
         :class="{
             'v-btn-link': $attrs.to,
             'app-btn-red': red,
+            'app-btn-green': green,
             success,
         }"
         v-bind="{
@@ -37,6 +38,7 @@ const props = defineProps({
     flat: Boolean,
     icon: Boolean,
     red: Boolean,
+    green: Boolean,
     rounded: Boolean,
     tooltip: String,
     success: String,
