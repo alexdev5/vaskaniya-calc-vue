@@ -5,6 +5,7 @@
         xmlns="http://www.w3.org/2000/svg"
         x="0"
         y="0"
+        width="30"
         viewBox="0 0 28.4 22.3"
         xml:space="preserve"
         class="vs-icon"
