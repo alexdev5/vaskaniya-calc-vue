@@ -1,30 +1,30 @@
 <template>
     <div class="app-block-card">
         <div class="app-block-card-image">
-            <img :src="thumbnail" alt="" />
+            <img class="image" :src="thumbnail" alt="" />
         </div>
         <div class="app-block-card-label" v-if="label">
             {{ label }}
         </div>
-        <!-- <div class="app-block-card-description" v-if="record.description">
-			 {{ record.description }}
-		 </div>
-		 <div class="app-block-card-price" v-if="record.acf?.price">
-			 {{ record.acf.price }}
-		 </div>-->
     </div>
 </template>
 
 <script lang="ts" setup>
 import { TermContract } from '@/api/terms/term.contracts.ts'
-import { Config } from '@/config'
+import { ImageHelper } from '@/config'
+import { computed } from 'vue'
 
 const props = defineProps<{
     record: TermContract
+    active?: boolean
     label?: string
 }>()
 
-const thumbnail = Config.getImage(props.record.acf.thumbnail?.url)
+const thumbnail = computed(() => {
+    return props.active && props.record.acf.thumbnailActive?.url
+        ? ImageHelper.getImage(props.record.acf.thumbnailActive?.url)
+        : ImageHelper.getImage(props.record.acf.thumbnail?.url)
+})
 </script>
 
 <style lang="scss">

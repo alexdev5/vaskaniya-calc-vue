@@ -13,7 +13,7 @@ export const configConstants = {
     apiImagesDir: apiDistDir + '/assets/images',
 }
 
-export class Config {
+export class ImageHelper {
     static getImage(url?: string) {
         if (url) return url
 

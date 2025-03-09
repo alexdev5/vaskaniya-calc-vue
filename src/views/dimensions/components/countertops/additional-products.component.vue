@@ -71,7 +71,7 @@
                     />
                     <img
                         :src="
-                            Config.getImageUrl(
+                            ImageHelper.getImageUrl(
                                 'dimensions/additional-rectangle.svg'
                             )
                         "
@@ -88,7 +88,7 @@
 </template>
 
 <script lang="ts" setup>
-import { Config } from '@/config'
+import { ImageHelper } from '@/config'
 import AppNumberInput from '@/components/elements/app-number-input.component.vue'
 import { useDimensionsStore } from '@/views/dimensions/dimensions.store.ts'
 import AppBlock from '@/components/app-block/app-block.component.vue'

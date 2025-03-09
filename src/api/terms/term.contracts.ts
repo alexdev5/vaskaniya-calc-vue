@@ -10,6 +10,7 @@ export interface AcfContract {
     isHidden: boolean
     price?: number
     thumbnail: ImageContract | null
+    thumbnailActive: ImageContract | null
     childBlockImage: ImageContract | null
     imageFullSize?: ImageContract | null
     lastChildBlockNumber: string

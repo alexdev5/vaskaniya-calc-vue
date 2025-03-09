@@ -1,5 +1,5 @@
 .app-block-card {
-	--app-card-width: 145px;
+	--app-card-width: 134px;
 
 	width: var(--app-card-width);
 	min-height: 110px;
@@ -23,6 +23,8 @@
 
 		img {
 			max-height: 100%;
+			width: 100%;
+			min-height: 88px;
 		}
 	}
 
@@ -31,7 +33,7 @@
 		font-weight: 500;
 	}
 
-	&.app-block-card-active {
+	&.active {
 		background: var(--app-color-error);
 		color: var(--app-color-secondary);
 

@@ -1,1 +1,1 @@
-export * from './config'
+export * from './image-helper.ts'

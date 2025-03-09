@@ -9,9 +9,9 @@
                     v-for="productType in state.entries.productTypes"
                     :record="productType"
                     :label="productType?.title"
+                    :active="productType.id === state.selectedProductTypeId"
                     :class="{
-                        'app-block-card-active':
-                            productType.id === state.selectedProductTypeId,
+                        active: productType.id === state.selectedProductTypeId,
                         'is-term-visibility': productType.acf.isHidden,
                     }"
                     @click="state.selectedProductTypeId = productType.id"
@@ -30,10 +30,11 @@
                         configuration.productTypeParentId ===
                         store.state.selectedProductTypeId
                     "
+                    :active="configuration.id === state.selectedConfigurationId"
                     :record="configuration"
                     :label="configuration?.title"
                     :class="{
-                        'app-block-card-active':
+                        active:
                             configuration.id === state.selectedConfigurationId,
                         'is-term-visibility': configuration.acf.isHidden,
                     }"
