@@ -38,14 +38,34 @@ export enum TableSideActions {
     FaceWithoutChamfer, // Лицо без фаски
 }
 
-// Столеншицы
+// Столеншицы. Используется ACF поле "name" в категории
 export enum Countertops {
     Rectangle = 'rectangle',
     StraightWindowsill = 'straight-windowsill', // прямая + подоконник
-    PShapedCounter = 'p-shaped-counter', // П-образная + барная стойка
+    PShapedBarCounter = 'p-shaped-bar-counter', // П-образная + барная стойка
     GShaped = 'g-shaped', // Г-образная
     PShaped = 'p-shaped', // П-образная
     PShapedWindowsill = 'p-shaped-windowsill', // П-образная + подоконник
+    GShapedWindowsill = 'g-shaped-windowsill', // Г-образная + подоконник
     PShapedBarCounterWindowsill = 'p-shaped-bar-counter-windowsill', // П-образная + барная стойка + подоконник
     Circle = 'circle', // круглая
 }
+
+// Подоконники.
+export enum windowSills {
+    straight = 'straight', // Прямой
+    mirror = 'mirror', // Зеркальный
+    angular = 'angular', // Угловой
+}
+
+// Барные стойки.
+export enum BarCounters {}
+
+// Фартуки
+export enum Backsplashes {}
+
+// Умывальники
+export enum Washbasins {}
+
+// Арт-объект
+export enum ArtObject {}

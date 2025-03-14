@@ -19,6 +19,7 @@ export const useDimensionsStore = defineStore('dimensions', () => {
         quantity: 1,
         quantityAdditional: 0,
 
+        //
         topSideAction: TableSideActions.None,
         rightSideAction: TableSideActions.None,
         bottomSideAction: TableSideActions.None,

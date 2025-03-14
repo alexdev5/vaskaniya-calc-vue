@@ -44,6 +44,7 @@
         </AppBlock>
 
         <CountertopsRectangle />
+
         <AdditionalProducts />
     </template>
 </template>

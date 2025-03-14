@@ -5,8 +5,10 @@
         <div class="app-calculator-container">
             <AppNavigation :price="0" :currency="`$`" />
 
-            <div class="app-calculator-body">
-                <RouterView />
+            <div class="app-calculator-body-wrapper">
+                <div class="app-calculator-body">
+                    <RouterView />
+                </div>
             </div>
         </div>
     </div>
