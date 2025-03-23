@@ -43,7 +43,14 @@
             </AppBlockCardContainer>
         </AppBlock>
 
-        <CountertopsRectangle />
+        <Rectangle
+            v-if="countertopsName === Countertops.Rectangle"
+            :name="countertopsName"
+        />
+        <StraightWindowsill
+            v-if="countertopsName === Countertops.StraightWindowsill"
+            :name="countertopsName"
+        />
 
         <AdditionalProducts />
     </template>
@@ -53,19 +60,18 @@
 import AppBlock from '@/components/app-block/app-block.component.vue'
 import AppBlockCardContainer from '@/components/app-block/app-card-container.component.vue'
 import AppBlockCard from '@/components/app-block/app-block-card/app-block-card.component.vue'
-import CountertopsRectangle from './components/countertops/countertops-rectangle.component.vue'
-import AdditionalProducts from './components/countertops/additional-products.component.vue'
+import Rectangle from './components/tables/rectangle.component.vue'
+import StraightWindowsill from './components/tables/straight-windowsill.component.vue'
+import AdditionalProducts from './components/tables/additional-products.component.vue'
 
 import { useDimensionsStore } from '@/views/dimensions/dimensions.store.ts'
-import { onMounted } from 'vue'
+import { Countertops } from '@/api/dimensions'
+import { computed } from 'vue'
 
 const store = useDimensionsStore()
 
-const { state, loadDimensions } = useDimensionsStore()
-
-onMounted(async () => {
-    await loadDimensions()
-})
+const { state } = useDimensionsStore()
+const countertopsName = computed(() => store.selectedConfiguration?.acf.name)
 </script>
 
 <style lang="scss">

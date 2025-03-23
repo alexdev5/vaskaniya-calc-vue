@@ -1,17 +1,16 @@
 import { defineStore } from 'pinia'
 import { computed, reactive, watch } from 'vue'
-import { dimensionsApi } from '@/services'
-import { DimensionsContract, TableSideActions } from '@/api/dimensions'
+import {
+    Countertops,
+    DimensionsContract,
+    TableSideActions,
+} from '@/api/dimensions'
 import { TermContract } from '@/api/terms/term.contracts.ts'
-
-export interface AdditionalSideActions {
-    topAction: TableSideActions
-    rightAction: TableSideActions
-    bottomAction: TableSideActions
-    leftAction: TableSideActions
-    width?: number
-    depth?: number
-}
+import {
+    DimensionsAdditionalSize,
+    RectangleTable,
+    StraightWindowsill,
+} from '@/views/dimensions/dimensions.type.ts'
 
 export const useDimensionsStore = defineStore('dimensions', () => {
     const state = reactive({
@@ -38,7 +37,13 @@ export const useDimensionsStore = defineStore('dimensions', () => {
     })
 
     // Дополнительные изделия (длина, ширина)
-    const additionalProducts = new Map<number, AdditionalSideActions>()
+    const additionalProducts = new Map<number, DimensionsAdditionalSize>()
+
+    const rectangleTable = new Map<number, RectangleTable>()
+    const straightWindowsill = new Map<number, StraightWindowsill>()
+
+    // Столешницы
+    const tables = new Map<Countertops, RectangleTable | StraightWindowsill>()
 
     const selectedProductType = computed((): TermContract | null => {
         if (!state.entries?.productTypes?.length) return null
@@ -59,23 +64,6 @@ export const useDimensionsStore = defineStore('dimensions', () => {
             ) ?? null
         )
     })
-
-    async function loadDimensions() {
-        state.loading = true
-
-        try {
-            const result = await dimensionsApi.dimensions()
-
-            state.entries = result
-
-            console.log(result)
-            setCardDefault()
-        } catch (error: any) {
-            console.log(error)
-        } finally {
-            state.loading = false
-        }
-    }
 
     function setCardDefault() {
         if (!state.entries) return
@@ -113,10 +101,14 @@ export const useDimensionsStore = defineStore('dimensions', () => {
     )
     return {
         state,
-        loadDimensions,
+        setCardDefault,
         selectedProductType,
         selectedConfiguration,
         figureSelected,
+
         additionalProducts,
+        straightWindowsill,
+        rectangleTable,
+        tables,
     }
 })

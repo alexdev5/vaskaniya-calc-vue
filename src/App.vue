@@ -16,4 +16,12 @@
 
 <script setup lang="ts">
 import AppNavigation from '@/components/navigations/app-navigation.component.vue'
+import { onMounted } from 'vue'
+import { useLoaderStore } from '@/loader.store.ts'
+
+const loaderStore = useLoaderStore()
+
+onMounted(async () => {
+    await loaderStore.loadDimensions()
+})
 </script>

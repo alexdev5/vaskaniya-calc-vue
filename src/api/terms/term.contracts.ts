@@ -1,12 +1,12 @@
-export interface TermContract {
+export interface TermContract<T = string> {
     id: number
     slug: string
     title: string
     description?: string
-    acf: AcfContract
+    acf: AcfContract<T>
 }
 
-export interface AcfContract {
+export interface AcfContract<T = string> {
     isHidden: boolean
     price?: number
     thumbnail: ImageContract | null
@@ -17,6 +17,7 @@ export interface AcfContract {
     lastChildBlockTitle: string
     lastChildBlockInfo: string
     blockNumber: string
+    name: T
     blockTitle: string
     blockInfo: string
 }

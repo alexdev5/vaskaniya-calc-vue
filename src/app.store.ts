@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 import { reactive } from 'vue'
 
-export const useDimensionsStore = defineStore('app', () => {
+export const useAppStore = defineStore('app', () => {
     const state = reactive({})
     return {
         state,

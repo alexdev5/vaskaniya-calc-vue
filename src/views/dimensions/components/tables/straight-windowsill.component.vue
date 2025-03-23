@@ -2,26 +2,39 @@
     <AppBlock
         :title="content.dimensions.setDimensionsTitle"
         :number="3"
-        :class="store.selectedConfiguration?.slug"
+        :class="store.selectedConfiguration?.acf.name"
     >
         <DesignationsDescription />
         <div class="app-block-figure-wrapper" v-if="store.figureSelected">
             <div class="app-block-figure" v-if="store.figureSelected.thumbnail">
                 <div class="app-block-figure-image">
+                    <!-- Actions -->
                     <AppCircularToggleMenu
-                        v-model="state.topSideAction"
+                        v-model="
+                            store.tables.get(Countertops.StraightWindowsill)!
+                                .topAction
+                        "
                         class="top-side-action"
                     />
                     <AppCircularToggleMenu
-                        v-model="state.rightSideAction"
+                        v-model="
+                            store.tables.get(Countertops.StraightWindowsill)!
+                                .rightAction
+                        "
                         class="right-side-action"
                     />
                     <AppCircularToggleMenu
-                        v-model="state.bottomSideAction"
+                        v-model="
+                            store.tables.get(Countertops.StraightWindowsill)!
+                                .bottomAction
+                        "
                         class="bottom-side-action"
                     />
                     <AppCircularToggleMenu
-                        v-model="state.leftSideAction"
+                        v-model="
+                            store.tables.get(Countertops.StraightWindowsill)!
+                                .leftAction
+                        "
                         class="left-side-action"
                     />
                     <img
@@ -29,15 +42,38 @@
                         alt="thumbnail"
                     />
 
+                    <!-- Inputs -->
                     <AppNumberInput
-                        v-model="state.tableWidth"
+                        v-model="
+                            store.tables.get(Countertops.StraightWindowsill)!
+                                .width
+                        "
                         variant="hidden"
-                        class="countertops-width"
+                        class="width"
                     />
                     <AppNumberInput
-                        v-model="state.tableDepth"
+                        v-model="
+                            store.tables.get(Countertops.StraightWindowsill)!
+                                .depth
+                        "
                         variant="hidden"
-                        class="countertops-depth"
+                        class="depth"
+                    />
+                    <AppNumberInput
+                        v-model="
+                            store.tables.get(Countertops.StraightWindowsill)!
+                                .stillWidth
+                        "
+                        variant="hidden"
+                        class="still-width"
+                    />
+                    <AppNumberInput
+                        v-model="
+                            store.tables.get(Countertops.StraightWindowsill)!
+                                .stillDepth
+                        "
+                        variant="hidden"
+                        class="still-depth"
                     />
                 </div>
 
@@ -69,45 +105,72 @@ import AppBlock from '@/components/app-block/app-block.component.vue'
 import { useDimensionsStore } from '@/views/dimensions/dimensions.store.ts'
 
 import { content } from '@/content'
+import { onBeforeMount } from 'vue'
+import { Countertops } from '@/api/dimensions'
+import { TableInitialValues } from '@/views/dimensions/components/tables/table-initial-values.ts'
+
+const props = defineProps<{
+    name: Countertops
+}>()
 
 const store = useDimensionsStore()
 
 const { state } = useDimensionsStore()
+
+const table = store.tables.get(Countertops.StraightWindowsill)
+
+onBeforeMount(() => {
+    store.tables.set(props.name, TableInitialValues[props.name]())
+
+    console.log(store.tables)
+})
 </script>
 
 <style lang="scss">
 //.app-calculator-wrapper
-.app-block.rectangle {
-    .countertops-width {
-        top: 26%;
-        left: 26%;
+.app-block.straight-windowsill {
+    .width {
+        top: 23%;
+        left: 23%;
         transform: rotate(-30deg);
     }
 
-    .countertops-depth {
-        top: 5%;
-        right: 6%;
+    .depth {
+        top: 14.5%;
+        right: 4.5%;
         transform: rotate(30deg);
     }
 
+    .still-depth {
+        top: 30%;
+        right: 20%;
+        transform: rotate(30deg);
+    }
+
+    .still-width {
+        top: 30%;
+        left: 31%;
+        transform: rotate(-30deg);
+    }
+
     .top-side-action {
-        top: 38%;
-        left: 39%;
+        top: 40%;
+        left: 41%;
     }
 
     .right-side-action {
-        top: 17%;
+        top: 24%;
         right: 15%;
     }
 
     .bottom-side-action {
-        left: 60%;
-        bottom: 34%;
+        left: 64%;
+        bottom: 30%;
     }
 
     .left-side-action {
-        top: 83%;
-        left: 18%;
+        top: 85%;
+        left: 26%;
     }
 }
 </style>
