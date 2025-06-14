@@ -43,14 +43,12 @@
             </AppBlockCardContainer>
         </AppBlock>
 
-        <Rectangle
-            v-if="countertopsName === Countertops.Rectangle"
-            :name="countertopsName"
-        />
         <StraightWindowsill
             v-if="countertopsName === Countertops.StraightWindowsill"
             :name="countertopsName"
         />
+
+        <Rectangle v-else :name="countertopsName" />
 
         <AdditionalProducts />
     </template>
@@ -67,11 +65,14 @@ import AdditionalProducts from './components/tables/additional-products.componen
 import { useDimensionsStore } from '@/views/dimensions/dimensions.store.ts'
 import { Countertops } from '@/api/dimensions'
 import { computed } from 'vue'
+import { TableInitialTypes } from '@/views/dimensions/components/tables/table-initial-values.ts'
 
 const store = useDimensionsStore()
 
 const { state } = useDimensionsStore()
-const countertopsName = computed(() => store.selectedConfiguration?.acf.name)
+const countertopsName = computed(
+    () => store.selectedConfiguration?.acf.name as keyof TableInitialTypes
+)
 </script>
 
 <style lang="scss">
